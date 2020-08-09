@@ -1,5 +1,3 @@
-
-
 export default function converctHoursToMinutes(time: string){
 
     const [hour, minutes] = time.split(':').map(Number);
