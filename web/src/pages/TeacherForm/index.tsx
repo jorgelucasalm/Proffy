@@ -1,13 +1,14 @@
 import React from 'react';
 
-import './style.css';
+import Input from '../../components/Input';
+import PageHeader from '../../components/PageHeader'
+import Textarea from '../../components/Textarea'
+import Select from '../../components/Select';
 
 import wariningIcon from '../../assets/images/icons/warning.svg'
 
-import Input from '../../components/Input';
+import './style.css';
 
-import PageHeader from '../../components/PageHeader'
-import Textarea from '../../components/Textarea'
 function TeacherForm() {
     return (
 
@@ -30,7 +31,7 @@ function TeacherForm() {
                 <fieldset>
                     <legend>Sobre a aula</legend>
 
-                    <Input name="subject" label="Máteria" />
+                    <Select name="subject" label="Máteria" />
                     <Input name="cost" label="Custo da sua hora po aula" />
                 </fieldset>
 
