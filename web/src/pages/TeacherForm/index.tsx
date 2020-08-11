@@ -7,7 +7,7 @@ import wariningIcon from '../../assets/images/icons/warning.svg'
 import Input from '../../components/Input';
 
 import PageHeader from '../../components/PageHeader'
-
+import Textarea from '../../components/Textarea'
 function TeacherForm() {
     return (
 
@@ -23,13 +23,17 @@ function TeacherForm() {
                     <Input name="name" label="Nome completo" />
                     <Input name="avatar" label="Avatar" />
                     <Input name="whatsapp" label="Whatsapp" />
+
+                    <Textarea name="bio" label="Biografia"/>
                 </fieldset>
+                
                 <fieldset>
                     <legend>Sobre a aula</legend>
 
                     <Input name="subject" label="Máteria" />
                     <Input name="cost" label="Custo da sua hora po aula" />
                 </fieldset>
+
                 <fieldset>
                     <legend>Horarios disponiveis</legend>
 
