@@ -21,7 +21,7 @@ export default function App() {
       //fragment
       <>
         <Landing />
-        <StatusBar style="auto" />
+        <StatusBar style="light" />
       </>
     );
   }
