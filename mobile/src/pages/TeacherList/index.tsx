@@ -3,7 +3,7 @@ import { View, Text } from 'react-native'
 import styles from './style'
 import PageHeader from '../../components/PageHeader'
 import TeacherItem from '../../components/TeacherItem'
-import { ScrollView, TextInput, BorderlessButton } from 'react-native-gesture-handler'
+import { ScrollView, TextInput, BorderlessButton, RectButton } from 'react-native-gesture-handler'
 import { Feather } from '@expo/vector-icons'
 
 function TeacherList() {
@@ -21,7 +21,7 @@ function TeacherList() {
                     <BorderlessButton onPress={hancleToogleFiltersVisible}>
                         <Feather name="filter" size={20} color="#fff"></Feather>
                     </BorderlessButton>
-            )}
+                )}
             >
                { isFiltersVisible && (
                     <View style={styles.searchForm}>
@@ -34,6 +34,7 @@ function TeacherList() {
                         />
 
                         <View style={styles.inputGroup}>
+                            
                             <View style={styles.inputBlock}>
                                 <Text style={styles.label}>Dia da semana</Text>
                                 <TextInput
@@ -42,6 +43,7 @@ function TeacherList() {
                                     placeholderTextColor="#c1bccc"
                                 />
                             </View>
+                            
                             <View style={styles.inputBlock}>
                                 <Text style={styles.label}>Horário</Text>
                                 <TextInput
@@ -50,11 +52,18 @@ function TeacherList() {
                                     placeholderTextColor="#c1bccc"
                                 />
                             </View>
+
                         </View>
+                        
+                        <RectButton style={styles.submitButton}>
+                            <Text style={styles.submitButtonText}>Filtrar</Text>
+                        
+                        </RectButton>
 
                     </View>
                )}
             </PageHeader>
+
             <ScrollView
                 style={styles.teacherList}
                 contentContainerStyle={{

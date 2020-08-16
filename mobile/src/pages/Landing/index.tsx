@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { View, Image, Text, TouchableOpacity } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { RectButton } from 'react-native-gesture-handler'
- 
+
 import styles from './style';
 
 import landingImg from '../../assets/images/landing.png'
@@ -10,17 +10,28 @@ import studyIcon from '../../assets/images/icons/study.png'
 import giveClasses from '../../assets/images/icons/give-classes.png'
 
 import heartIcon from '../../assets/images/icons/heart.png'
+import api from '../../services/api';
 
 
 function Landing() {
-const {navigate} = useNavigation();
+    const { navigate } = useNavigation();
+    const [totalConnections, setTotalConnections] = useState(0);
 
-function handleNavigateToGiveClassesPage(){
-    navigate('GiveClasses');
-}
-function handleNavigateToStudyPages(){
-    navigate('Study');
-}
+    useEffect(() => {
+        api.get('connections').then(response => {
+            const { total } = response.data;
+
+            setTotalConnections(total);
+        })
+    }, []);
+
+
+    function handleNavigateToGiveClassesPage() {
+        navigate('GiveClasses');
+    }
+    function handleNavigateToStudyPages() {
+        navigate('Study');
+    }
 
     return (
         <View style={styles.container}>
@@ -36,14 +47,14 @@ function handleNavigateToStudyPages(){
                 <RectButton onPress={handleNavigateToStudyPages}
                     style={[styles.button, styles.buttonPrimary]}
                 >
-                    
+
                     <Image source={studyIcon} />
 
                     <Text style={styles.buttonText}>Estudar</Text>
                 </RectButton>
 
-                    <RectButton 
-                    onPress={handleNavigateToGiveClassesPage} 
+                <RectButton
+                    onPress={handleNavigateToGiveClassesPage}
                     style={[styles.button, styles.buttonSecondary]}
                 >
                     <Image source={giveClasses} />
@@ -53,8 +64,8 @@ function handleNavigateToStudyPages(){
             </View>
 
             <Text style={styles.totalConnections}>
-                Total de 285 conexões já realizadas {' '}
-                <Image source={heartIcon}/>
+                Total de {totalConnections} conexões já realizadas {' '}
+                <Image source={heartIcon} />
             </Text>
         </View>
     )
