@@ -15,12 +15,11 @@ import api from '../../services/api';
 
 function Landing() {
     const { navigate } = useNavigation();
-    const [totalConnections, setTotalConnections] = useState(0);
+    const [totalConnections, setTotalConnections] = useState(4);
 
     useEffect(() => {
         api.get('connections').then(response => {
             const { total } = response.data;
-
             setTotalConnections(total);
         })
     }, []);
