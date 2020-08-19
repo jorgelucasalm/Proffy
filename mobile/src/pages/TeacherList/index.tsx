@@ -11,6 +11,7 @@ import api from '../../services/api'
 
 
 import styles from './style'
+import { useFocusEffect } from '@react-navigation/native'
 
 function TeacherList() {
     const [isFiltersVisible, setFiltersVisible] = useState(false);
@@ -36,9 +37,9 @@ function TeacherList() {
         });
     }
 
-    useEffect(() => {
-        
-    }, [])
+    useFocusEffect(() => {
+        loadFavorites();
+    })
 
     function hancleToogleFiltersVisible() {
         setFiltersVisible(!isFiltersVisible);
